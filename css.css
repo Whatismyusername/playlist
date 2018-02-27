@@ -3,7 +3,26 @@
     padding:0;
 }
 body{
-    background: linear-gradient();
+    background: linear-gradient(to bottom left, rgba(0, 0, 0, 0.9), rgba(128, 128, 128, 0.9));
+}
+h1{
+    color:white;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    text-align:center;
+    font-size:10vw;
+}
+input{
+    height:5vh;
+    width:40vw;
+    margin-left:5vw;
+    margin-bottom:2vh;
+    border:2px solid black;
+    font-size:4vh;
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+h6{
+    font-size:4vh;
+    text-align:center;
 }
 #additionForm{
     width:100%;
@@ -18,9 +37,40 @@ body{
     left:25vw;
     border-radius:3%;
     position:absolute;
+    font-family: 'Saira Extra Condensed', sans-serif;
 }
 #playlistDiv{
-    left:10vw;
-    width:80vw;
-    position:absolute;
+    margin-left:10%;
+    width:80%;
+    height:30vh;
+    border-radius:10%;
+}
+.songTextDis{
+    background-color:white;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-size:5.4vh;
+    
+}
+.song_Album_ImageDis{
+    height:30vh;
+    border-radius:10%;
+    float:left;
+}
+button{
+    height:10vh;
+    width:40vw;
+    background: linear-gradient(to bottom left, rgba(255, 255, 255, 0.9), rgba(0, 0, 0, 0.9));
+    border-radius:10%;
+    border: 3px solid rgb(0, 0, 0);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    color:white;
+    font-size:5vh;
+}
+#addSongBtn{
+    margin-bottom:5vh;
+    margin-left:30vw;
+}
+#enter{
+    margin-left:5vw;
+    font-size:4vh;
 }

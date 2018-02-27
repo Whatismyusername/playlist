@@ -1,39 +1,62 @@
 var songName = '';
-    var songArtist = '';
-    var songLength = '';
-    var songURL = '';
-    var song_Album_Image = '';
-    var songList = [
-            {
-                songName: 'Viva La Vida',
-                songArtist: 'Coldplay',
-                songLength: '4:02',
-                songURL: 'Viva_La_Vida.mp3',
-                song_Album_Image: 'http://www.coldplay.com/recordings/art_vivalavida.jpg',
-            }
-        ]
+var songArtist = '';
+var songLength = '';
+var songURL = '';
+var song_Album_Image = '';
+var songList = [
+        {
+            songName: 'Viva La Vida',
+            songArtist: 'Coldplay',
+            songLength: '4:02',
+            songURL: 'Viva_La_Vida.mp3',
+            song_Album_Image: 'http://www.coldplay.com/recordings/art_vivalavida.jpg',
+        }
+]
 $('document').ready(function(){
-    $('#additionForm').hide();
     
+    
+    $('#addSongBtn').click(function(){
+        $('#playlist').hide();
+        $('#additionForm').show();
+    })    
         
     $('#enter').click(function(){
         songName = $('#songName').val();
+        if (songName === ''){
+            songName = 'Unknown';
+        }
         songArtist = $('#songArtist').val();
+        if (songArtist === ''){
+            songArtist = 'Unknown';
+        }
         songLength = $('#songLength').val();
+        if (songLength === ''){
+            songLength = 'Unknown';
+        } 
         songURL = $('#songURL').val();
+        if (songURL === ''){
+            alert('Please Enter The Song URL');
+            return false
+        }
         song_Album_Image = $('#song_Album_Image').val();
         addSong();
     });
     function clearList(){
-        $('#list').empty();
+        $('#playlistDiv').empty();
     }
     
     function displayList(){
-        console.log(songList)
-        $('#playlistDiv').append("<h2 id='songNameDis'>" + songList[0].songName + "</h2>");
-        $('#playlistDiv').append("<h4 id='songArtistDis'>" + songList[0].songArtist + "</h4>");
-        $('#playlistDiv').append("<h4 id='songLengthDis'>" + songList[0].songLength + "</h4>");
-        $('#playlistDiv').append("<img id ='songAlbum_imageDis'src='" + songList[0].song_Album_Image + "'>");
+        for(var i = 0; i <songList.length; i++){
+            var songNameDis = "<h2 class='songNameDis'>" + songList[i].songName + "</h2>";
+            var songArtistDis = "<h4 class='songArtistDis'>" + songList[i].songArtist + "</h4>";
+            var songLengthDis = "<h4 class='songLengthDis'>" + songList[i].songLength + "</h4>";
+            var songImgDis = "<img class='song_Album_imageDis' src='" + songList[i].song_Album_Image + "'>";
+            var songTextDis = "<div class='songTextDis'>" + songNameDis + songArtistDis + songLengthDis + "</div>";
+            var audio = "<audio controls> <source src='" + songList[i].songURL + "' type='audio/mpeg'> </audio>"
+            $('#playlistDiv').append("<div class='listBlock' id='song" + i + "'>" +  songImgDis + songTextDis +"</div>" + audio + "<br><br>");
+        }
+        $('#additionForm').hide();
+        $('#playlist').show();
     }
     
     function addSong(){
